@@ -71,7 +71,7 @@ main {
 }
 
 .weather-temperature {
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 600;
   position: relative;
   top: 20px;
@@ -81,8 +81,12 @@ main {
 .weather-icon {
   font-size: 40px;
   position: relative;
-  right: 15px;
-  top: 8px;
+  right: 10px;
+  top: 40px;
+}
+
+.icon {
+  display: inline;
 }
 
 .weather-unit {
