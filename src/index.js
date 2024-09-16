@@ -19,6 +19,8 @@ function refreshWeather(response) {
                 class="weather-icon"
                 src=${response.data.condition.icon_url}
               />`;
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -54,7 +56,14 @@ function enterCity(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "93tdd4d3b4c2db3bcc87b00foc83ce4a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -82,4 +91,3 @@ let searchFormInput = document.querySelector("#search-form");
 searchFormInput.addEventListener("submit", enterCity);
 
 searchCity("Ulm");
-displayForecast();
